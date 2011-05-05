@@ -16,12 +16,13 @@
   locationManager.delegate = self;
   locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
   locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-
+  updated = FALSE;
   return self;
 }
 
 - (void)updateLocation
 {
+  updated = FALSE;
   [locationManager startUpdatingLocation];
 }
 
@@ -33,6 +34,8 @@
   longitude = newLocation.coordinate.longitude;
 
   [locationManager stopUpdatingLocation];
+
+  updated = TRUE;
 
   NSLog(@"Location: %f, %f", latitude, longitude);
 }

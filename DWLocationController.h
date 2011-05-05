@@ -14,6 +14,7 @@
 
   float latitude;
   float longitude;
+  BOOL  updated;
 
 }
 
@@ -21,5 +22,6 @@
 - (void)updateLocation;
 - (float)getLatitude;
 - (float)getLongitude;
+- (BOOL)isUpdated;
 
 @end
