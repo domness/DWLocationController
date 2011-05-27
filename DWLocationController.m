@@ -10,41 +10,42 @@
 
 @implementation DWLocationController
 
+// Initializes the location controller
 - (LocationController *)init
 {
   locationManager = [[CLLocationManager alloc] init];
   locationManager.delegate = self;
-  locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-  locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+  locationManager.distanceFilter = kCLDistanceFilterNone;
+  locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
   updated = FALSE;
   return self;
 }
 
+// Updates the user location
 - (void)updateLocation
 {
   updated = FALSE;
   [locationManager startUpdatingLocation];
 }
 
+// Receives location
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
   latitude = newLocation.coordinate.latitude;
   longitude = newLocation.coordinate.longitude;
-
   [locationManager stopUpdatingLocation];
-
   updated = TRUE;
-
-  NSLog(@"Location: %f, %f", latitude, longitude);
 }
 
+// Gets the latitude
 - (float)getLatitude
 {
   return latitude;
 }
 
+// Gets the longitude
 - (float)getLongitude
 {
   return longitude;

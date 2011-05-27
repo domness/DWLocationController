@@ -1,4 +1,8 @@
+# DWLocationController
+
 Quickly and easily get a users location.
+
+## Example API
 
 Example:
 
