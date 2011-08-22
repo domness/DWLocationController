@@ -51,4 +51,9 @@
   return longitude;
 }
 
+- (BOOL)isUpdated
+{
+  return updated;
+}
+
 @end
