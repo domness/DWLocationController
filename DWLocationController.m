@@ -11,7 +11,7 @@
 @implementation DWLocationController
 
 // Initializes the location controller
-- (LocationController *)init
+- (DWLocationController *)init
 {
   locationManager = [[CLLocationManager alloc] init];
   locationManager.delegate = self;
