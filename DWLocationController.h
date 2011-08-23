@@ -23,5 +23,6 @@
 - (float)getLatitude;
 - (float)getLongitude;
 - (BOOL)isUpdated;
+- (void)stopUpdatingLocation;
 
 @end

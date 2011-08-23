@@ -56,4 +56,9 @@
   return updated;
 }
 
+- (void)stopUpdatingLocation
+{
+  [locationManager stopUpdatingLocation];
+}
+
 @end
