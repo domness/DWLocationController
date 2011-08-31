@@ -55,7 +55,6 @@
   return longitude;
 }
 
-
 // Returns if the object has got a location yet
 - (BOOL)isUpdated
 {
