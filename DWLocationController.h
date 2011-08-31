@@ -9,16 +9,18 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface DWLocationController : NSObject <CLLocationManagerDelegate> {
-
-  CLLocationManager           *locationManager;
-
-  float latitude;
-  float longitude;
-  BOOL  updated;
-
+@private
+  CLLocationManager     * locationManager;
+  float                   latitude;
+  float                   longitude;
+  BOOL                    updated;
+  BOOL                    stopsUpdatingOnceFound;
 }
 
+@property (assign) BOOL stopsUpdatingOnceFound;
+
 - (DWLocationController *)init;
+- (void)set
 - (void)updateLocation;
 - (float)getLatitude;
 - (float)getLongitude;

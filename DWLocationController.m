@@ -10,6 +10,8 @@
 
 @implementation DWLocationController
 
+@synthesize stopsUpdatingOnceFound;
+
 // Initializes the location controller
 - (DWLocationController *)init
 {
@@ -35,8 +37,10 @@
 {
   latitude = newLocation.coordinate.latitude;
   longitude = newLocation.coordinate.longitude;
-  [locationManager stopUpdatingLocation];
   updated = TRUE;
+  if (stopsUpdatingOnceFound) {
+    [self stopUpdatingLocation];
+  }
 }
 
 // Gets the latitude
@@ -51,11 +55,14 @@
   return longitude;
 }
 
+
+// Returns if the object has got a location yet
 - (BOOL)isUpdated
 {
   return updated;
 }
 
+// Stops the location manager from updating
 - (void)stopUpdatingLocation
 {
   [locationManager stopUpdatingLocation];
